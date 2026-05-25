@@ -60,6 +60,22 @@
       box-shadow: 0 16px 35px rgba(47, 42, 36, 0.12);
     }
 
+    .workshop-hero-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-bottom: 22px;
+    }
+
+    .workshop-contact-group {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
     .workshop-kicker {
       display: inline-flex;
       align-items: center;
@@ -522,6 +538,14 @@
     }
 
     @media (max-width: 980px) {
+      .workshop-hero-header {
+        align-items: flex-start;
+      }
+
+      .workshop-contact-group {
+        justify-content: flex-start;
+      }
+
       .workshop-hero-grid,
       .workshop-booking-wrap,
       .workshop-urgency {
@@ -548,8 +572,13 @@
     }
 
     @media (max-width: 640px) {
-      .workshop-topbar {
-        justify-content: center;
+      .workshop-hero-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .workshop-contact-group {
+        width: 100%;
         flex-direction: column;
         align-items: stretch;
       }
@@ -592,15 +621,17 @@
     }
   </style>
 
-  <div class="workshop-container workshop-topbar">
-    <a class="workshop-contact-pill" href="tel:4072058938">Call 407-205-8938</a>
-    <a class="workshop-contact-pill" href="mailto:concierge.ivoryroomflorida@gmail.com?subject=Ivory%20Room%20Workshop%20Inquiry">Email concierge.ivoryroomflorida@gmail.com</a>
-  </div>
 
   <div class="workshop-hero">
     <div class="workshop-container workshop-hero-grid">
       <div>
-        <span class="workshop-kicker">Corporate Workshops and Private Business Events</span>
+        <div class="workshop-hero-header">
+          <span class="workshop-kicker">Corporate Workshops and Private Business Events</span>
+          <div class="workshop-contact-group">
+            <a class="workshop-contact-pill" href="tel:4072058938">Call 407-205-8938</a>
+            <a class="workshop-contact-pill" href="mailto:concierge.ivoryroomflorida@gmail.com?subject=Ivory%20Room%20Workshop%20Inquiry">Email concierge.ivoryroomflorida@gmail.com</a>
+          </div>
+        </div>
         <h1>A Polished Workshop Venue for Teams, Trainings, and Professional Gatherings.</h1>
         <p>Host your next corporate workshop, leadership session, client training, networking event, or creative business gathering in an affordable luxury space designed to feel professional, flexible, and elevated.</p>
         <div class="workshop-btn-row">
