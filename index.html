@@ -1,0 +1,805 @@
+<!-- The Ivory Room Corporate Workshop Landing Page -->
+<section class="ivory-workshop-page">
+  <style>
+    .ivory-workshop-page {
+      --ivory: #fffaf2;
+      --cream: #f7efe2;
+      --champagne: #d8b86f;
+      --gold: #b98b38;
+      --deep: #2f2a24;
+      --soft-brown: #6f6256;
+      --sage: #8f9c86;
+      --white: #ffffff;
+      --shadow: 0 24px 60px rgba(47, 42, 36, 0.14);
+      font-family: "Lato", "Helvetica Neue", Arial, sans-serif;
+      color: var(--deep);
+      background: linear-gradient(180deg, #fffaf2 0%, #f7efe2 100%);
+      overflow: hidden;
+    }
+
+    .ivory-workshop-page * {
+      box-sizing: border-box;
+    }
+
+    .workshop-container {
+      width: min(1180px, 92%);
+      margin: 0 auto;
+    }
+
+    .workshop-topbar {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 12px;
+      padding-top: 22px;
+      position: relative;
+      z-index: 5;
+    }
+
+    .workshop-contact-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.84);
+      border: 1px solid rgba(185, 139, 56, 0.24);
+      color: var(--deep);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 800;
+      line-height: 1.2;
+      box-shadow: 0 12px 30px rgba(47, 42, 36, 0.08);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      max-width: 100%;
+      overflow-wrap: anywhere;
+    }
+
+    .workshop-contact-pill:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 35px rgba(47, 42, 36, 0.12);
+    }
+
+    .workshop-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 16px;
+      border: 1px solid rgba(185, 139, 56, 0.32);
+      border-radius: 999px;
+      color: var(--gold);
+      background: rgba(255, 255, 255, 0.68);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .workshop-kicker::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--champagne);
+      box-shadow: 0 0 0 6px rgba(216, 184, 111, 0.16);
+    }
+
+    .workshop-btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+      margin-top: 28px;
+    }
+
+    .workshop-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 14px 24px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 900;
+      letter-spacing: 0.02em;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    }
+
+    .workshop-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .workshop-btn-primary {
+      color: #ffffff;
+      background: linear-gradient(135deg, #b98b38 0%, #d8b86f 100%);
+      box-shadow: 0 18px 35px rgba(185, 139, 56, 0.28);
+    }
+
+    .workshop-btn-secondary {
+      color: var(--deep);
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(47, 42, 36, 0.14);
+    }
+
+    .workshop-hero {
+      position: relative;
+      padding: 70px 0 70px;
+    }
+
+    .workshop-hero::before {
+      content: "";
+      position: absolute;
+      top: -120px;
+      right: -130px;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(216, 184, 111, 0.34), rgba(216, 184, 111, 0));
+      pointer-events: none;
+    }
+
+    .workshop-hero-grid {
+      display: grid;
+      grid-template-columns: 1.02fr 0.98fr;
+      gap: 54px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .workshop-hero h1 {
+      margin: 22px 0 18px;
+      max-width: 760px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(42px, 6vw, 74px);
+      line-height: 0.96;
+      letter-spacing: -0.05em;
+      color: var(--deep);
+    }
+
+    .workshop-hero p {
+      max-width: 660px;
+      color: var(--soft-brown);
+      font-size: 19px;
+      line-height: 1.75;
+      margin: 0;
+    }
+
+    .workshop-note {
+      margin-top: 18px;
+      color: var(--gold);
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .workshop-photo-card {
+      position: relative;
+      min-height: 560px;
+      border-radius: 34px;
+      padding: 18px;
+      background: rgba(255, 255, 255, 0.66);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .workshop-photo-main {
+      position: absolute;
+      inset: 18px;
+      border-radius: 26px;
+      background:
+        linear-gradient(180deg, rgba(47, 42, 36, 0.08), rgba(47, 42, 36, 0.52)),
+        url("https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1300&q=85") center/cover;
+    }
+
+    .workshop-floating-card {
+      position: absolute;
+      left: 34px;
+      bottom: 34px;
+      width: min(380px, calc(100% - 68px));
+      padding: 24px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 18px 45px rgba(47, 42, 36, 0.18);
+      backdrop-filter: blur(12px);
+    }
+
+    .workshop-floating-card strong {
+      display: block;
+      margin-bottom: 7px;
+      font-size: 22px;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .workshop-floating-card span {
+      color: var(--soft-brown);
+      line-height: 1.55;
+      font-size: 15px;
+    }
+
+    .workshop-section {
+      padding: 76px 0;
+    }
+
+    .workshop-section-header {
+      max-width: 760px;
+      margin-bottom: 42px;
+    }
+
+    .workshop-section-header.center {
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+
+    .workshop-section h2 {
+      margin: 18px 0 14px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(34px, 4vw, 52px);
+      line-height: 1.04;
+      letter-spacing: -0.04em;
+    }
+
+    .workshop-section-header p {
+      margin: 0;
+      color: var(--soft-brown);
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .workshop-card-grid,
+    .workshop-pricing-grid,
+    .workshop-steps-grid,
+    .workshop-addon-grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .workshop-card-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .workshop-card,
+    .workshop-pricing-card,
+    .workshop-step-card,
+    .workshop-addon-card {
+      border: 1px solid rgba(47, 42, 36, 0.1);
+      border-radius: 26px;
+      background: rgba(255, 255, 255, 0.76);
+      box-shadow: 0 18px 40px rgba(47, 42, 36, 0.08);
+    }
+
+    .workshop-card {
+      padding: 26px;
+      min-height: 190px;
+    }
+
+    .workshop-icon {
+      width: 42px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: rgba(216, 184, 111, 0.18);
+      color: var(--gold);
+      font-size: 21px;
+      margin-bottom: 18px;
+    }
+
+    .workshop-card h3,
+    .workshop-pricing-card h3,
+    .workshop-step-card h3 {
+      margin: 0 0 10px;
+      font-size: 21px;
+      line-height: 1.2;
+    }
+
+    .workshop-card p,
+    .workshop-pricing-card p,
+    .workshop-step-card p,
+    .workshop-addon-card p {
+      margin: 0;
+      color: var(--soft-brown);
+      line-height: 1.6;
+      font-size: 15px;
+    }
+
+    .workshop-pricing-grid {
+      grid-template-columns: repeat(3, 1fr);
+      align-items: stretch;
+    }
+
+    .workshop-pricing-card {
+      position: relative;
+      padding: 30px;
+      overflow: hidden;
+    }
+
+    .workshop-pricing-card.featured {
+      background: linear-gradient(180deg, rgba(47, 42, 36, 0.97), rgba(72, 61, 49, 0.97));
+      color: #ffffff;
+      box-shadow: 0 28px 60px rgba(47, 42, 36, 0.22);
+    }
+
+    .workshop-pricing-card.featured p,
+    .workshop-pricing-card.featured li,
+    .workshop-pricing-card.featured .workshop-price-note {
+      color: rgba(255, 255, 255, 0.76);
+    }
+
+    .workshop-badge {
+      display: inline-flex;
+      margin-bottom: 18px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      color: var(--gold);
+      background: rgba(216, 184, 111, 0.16);
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .workshop-pricing-card.featured .workshop-badge {
+      color: #ffffff;
+      background: rgba(216, 184, 111, 0.28);
+    }
+
+    .workshop-price {
+      margin: 18px 0 14px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 34px;
+      line-height: 1;
+    }
+
+    .workshop-price-note {
+      display: block;
+      margin-bottom: 20px;
+      color: var(--soft-brown);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .workshop-pricing-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 22px 0 0;
+    }
+
+    .workshop-pricing-card li {
+      position: relative;
+      padding-left: 24px;
+      margin-bottom: 13px;
+      color: var(--soft-brown);
+      font-size: 15px;
+      line-height: 1.45;
+    }
+
+    .workshop-pricing-card li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--gold);
+      font-weight: 900;
+    }
+
+    .workshop-pricing-card .workshop-btn {
+      width: 100%;
+      margin-top: 18px;
+    }
+
+    .workshop-addon-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .workshop-addon-card {
+      padding: 22px;
+      text-align: center;
+    }
+
+    .workshop-addon-card strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 16px;
+    }
+
+    .workshop-steps-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .workshop-step-card {
+      padding: 28px;
+    }
+
+    .workshop-step-number {
+      width: 42px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      border-radius: 50%;
+      background: var(--deep);
+      color: #ffffff;
+      font-weight: 900;
+    }
+
+    .workshop-booking-wrap {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 34px;
+      align-items: stretch;
+      padding: 34px;
+      border-radius: 34px;
+      background: rgba(255, 255, 255, 0.82);
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(47, 42, 36, 0.08);
+    }
+
+    .workshop-booking-panel {
+      padding: 36px;
+      border-radius: 28px;
+      background:
+        linear-gradient(180deg, rgba(47, 42, 36, 0.18), rgba(47, 42, 36, 0.68)),
+        url("https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=85") center/cover;
+      color: #ffffff;
+      min-height: 100%;
+    }
+
+    .workshop-booking-panel h2 {
+      margin: 0 0 14px;
+      color: #ffffff;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(32px, 4vw, 48px);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+    }
+
+    .workshop-booking-panel p {
+      color: rgba(255, 255, 255, 0.82);
+      line-height: 1.7;
+      font-size: 17px;
+    }
+
+    .workshop-booking-options {
+      display: grid;
+      gap: 16px;
+    }
+
+    .workshop-booking-box {
+      padding: 24px;
+      border-radius: 22px;
+      background: #ffffff;
+      border: 1px solid rgba(47, 42, 36, 0.12);
+    }
+
+    .workshop-booking-box.highlight {
+      background: rgba(255, 250, 242, 0.9);
+      border: 1px solid rgba(185, 139, 56, 0.22);
+    }
+
+    .workshop-booking-box h3 {
+      margin: 0 0 10px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 28px;
+      line-height: 1.15;
+    }
+
+    .workshop-booking-box p {
+      margin: 0 0 20px;
+      color: var(--soft-brown);
+      line-height: 1.7;
+    }
+
+    .workshop-urgency {
+      padding: 54px;
+      border-radius: 34px;
+      background: linear-gradient(135deg, #2f2a24 0%, #514437 100%);
+      color: #ffffff;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 28px;
+      align-items: center;
+      box-shadow: 0 28px 70px rgba(47, 42, 36, 0.24);
+    }
+
+    .workshop-urgency h2 {
+      margin: 0 0 12px;
+      color: #ffffff;
+    }
+
+    .workshop-urgency p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .workshop-urgency .workshop-btn-row {
+      justify-content: flex-end;
+      margin-top: 0;
+    }
+
+    @media (max-width: 980px) {
+      .workshop-hero-grid,
+      .workshop-booking-wrap,
+      .workshop-urgency {
+        grid-template-columns: 1fr;
+      }
+
+      .workshop-photo-card {
+        min-height: 460px;
+      }
+
+      .workshop-card-grid,
+      .workshop-pricing-grid,
+      .workshop-steps-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .workshop-addon-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .workshop-urgency .workshop-btn-row {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .workshop-topbar {
+        justify-content: center;
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .workshop-contact-pill {
+        justify-content: center;
+      }
+
+      .workshop-hero {
+        padding: 46px 0 44px;
+      }
+
+      .workshop-section {
+        padding: 54px 0;
+      }
+
+      .workshop-card-grid,
+      .workshop-pricing-grid,
+      .workshop-steps-grid,
+      .workshop-addon-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .workshop-booking-wrap,
+      .workshop-urgency {
+        padding: 22px;
+        border-radius: 26px;
+      }
+
+      .workshop-floating-card {
+        left: 22px;
+        bottom: 22px;
+        width: calc(100% - 44px);
+        padding: 20px;
+      }
+
+      .workshop-btn {
+        width: 100%;
+      }
+    }
+  </style>
+
+  <div class="workshop-container workshop-topbar">
+    <a class="workshop-contact-pill" href="tel:4072058938">Call 407-205-8938</a>
+    <a class="workshop-contact-pill" href="mailto:concierge.ivoryroomflorida@gmail.com?subject=Ivory%20Room%20Workshop%20Inquiry">Email concierge.ivoryroomflorida@gmail.com</a>
+  </div>
+
+  <div class="workshop-hero">
+    <div class="workshop-container workshop-hero-grid">
+      <div>
+        <span class="workshop-kicker">Corporate Workshops and Private Business Events</span>
+        <h1>A Polished Workshop Venue for Teams, Trainings, and Professional Gatherings.</h1>
+        <p>Host your next corporate workshop, leadership session, client training, networking event, or creative business gathering in an affordable luxury space designed to feel professional, flexible, and elevated.</p>
+        <div class="workshop-btn-row">
+          <a class="workshop-btn workshop-btn-primary" href="https://www.peerspace.com/pages/listings/647045b37672b6000e70ac0d?utm_source=copy_link&utm_campaign=listing_sharing" target="_blank" rel="noopener">Book Workshop Space on Peerspace</a>
+          <a class="workshop-btn workshop-btn-secondary" href="tel:4072058938">Call 407-205-8938</a>
+        </div>
+        <div class="workshop-note">Ideal for workshops, team sessions, trainings, presentations, and private business gatherings.</div>
+      </div>
+
+      <div class="workshop-photo-card" aria-label="Corporate workshop venue preview">
+        <div class="workshop-photo-main"></div>
+        <div class="workshop-floating-card">
+          <strong>The Ivory Room</strong>
+          <span>A flexible Altamonte Springs venue for corporate workshops, client trainings, business mixers, and professional events.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="workshop-section">
+    <div class="workshop-container">
+      <div class="workshop-section-header center">
+        <span class="workshop-kicker">Built for Business Gatherings</span>
+        <h2>A professional setting that still feels warm, modern, and elevated.</h2>
+        <p>The Ivory Room gives business owners, teams, and organizations a clean blank canvas for productive sessions without the cold feel of a traditional meeting room.</p>
+      </div>
+
+      <div class="workshop-card-grid">
+        <div class="workshop-card">
+          <div class="workshop-icon">◌</div>
+          <h3>Corporate Workshops</h3>
+          <p>Perfect for educational sessions, planning days, leadership meetings, and hands-on business trainings.</p>
+        </div>
+        <div class="workshop-card">
+          <div class="workshop-icon">✦</div>
+          <h3>Client Trainings</h3>
+          <p>Give your clients a polished in-person experience for onboarding, coaching, presentations, or group learning.</p>
+        </div>
+        <div class="workshop-card">
+          <div class="workshop-icon">⌁</div>
+          <h3>Team Strategy Sessions</h3>
+          <p>Use the space for brainstorming, quarterly planning, team alignment, or small retreat-style workdays.</p>
+        </div>
+        <div class="workshop-card">
+          <div class="workshop-icon">☼</div>
+          <h3>Networking Mixers</h3>
+          <p>Create an elegant environment for business meetups, panel discussions, community events, or brand activations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="workshop-section">
+    <div class="workshop-container">
+      <div class="workshop-section-header">
+        <span class="workshop-kicker">Workshop Pricing</span>
+        <h2>Simple hourly booking with flexible add ons.</h2>
+        <p>Book directly through Peerspace with clear hourly pricing, a two hour minimum, and optional upgrades to support your workshop experience.</p>
+      </div>
+
+      <div class="workshop-pricing-grid">
+        <div class="workshop-pricing-card featured">
+          <span class="workshop-badge">Instant Book</span>
+          <h3>Hourly Workshop Rental</h3>
+          <p>Best for trainings, business workshops, client presentations, and professional gatherings.</p>
+          <div class="workshop-price">$50–$75/hr</div>
+          <span class="workshop-price-note">Official Peerspace pricing range</span>
+          <ul>
+            <li>2 hour minimum booking</li>
+            <li>Up to 60 guests</li>
+            <li>600 square foot flexible space</li>
+            <li>Instant booking through Peerspace</li>
+          </ul>
+          <a class="workshop-btn workshop-btn-primary" href="https://www.peerspace.com/pages/listings/647045b37672b6000e70ac0d?utm_source=copy_link&utm_campaign=listing_sharing" target="_blank" rel="noopener">Book on Peerspace</a>
+        </div>
+
+        <div class="workshop-pricing-card">
+          <span class="workshop-badge">Best Value</span>
+          <h3>Full Day Workshop</h3>
+          <p>Best for retreats, longer trainings, brand activations, and extended team sessions.</p>
+          <div class="workshop-price">15% Off</div>
+          <span class="workshop-price-note">For 8+ hour bookings on Peerspace</span>
+          <ul>
+            <li>Ideal for full day workshops</li>
+            <li>More time for setup and breakdown</li>
+            <li>Better flow for trainings and networking</li>
+            <li>Great for hosted business events</li>
+          </ul>
+          <a class="workshop-btn workshop-btn-secondary" href="https://www.peerspace.com/pages/listings/647045b37672b6000e70ac0d?utm_source=copy_link&utm_campaign=listing_sharing" target="_blank" rel="noopener">View Full Day Option</a>
+        </div>
+
+        <div class="workshop-pricing-card">
+          <span class="workshop-badge">Add Ons</span>
+          <h3>Workshop Enhancements</h3>
+          <p>Add helpful support items for comfort, presentation flow, and a more polished attendee experience.</p>
+          <div class="workshop-price">From $2</div>
+          <span class="workshop-price-note">Add ons available at checkout or upon request</span>
+          <ul>
+            <li>Folding chairs $2/item</li>
+            <li>Six-foot tables with linen $20/item</li>
+            <li>Two JBL 6 speakers $25 flat fee</li>
+            <li>Pop-up Café and roving caviar options available</li>
+          </ul>
+          <a class="workshop-btn workshop-btn-secondary" href="https://www.peerspace.com/pages/listings/647045b37672b6000e70ac0d?utm_source=copy_link&utm_campaign=listing_sharing" target="_blank" rel="noopener">View Add Ons</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="workshop-section">
+    <div class="workshop-container">
+      <div class="workshop-section-header center">
+        <span class="workshop-kicker">Workshop Add Ons</span>
+        <h2>Upgrade the attendee experience.</h2>
+        <p>Make your workshop feel more intentional with setup support, presentation friendly rentals, and premium hospitality options.</p>
+      </div>
+
+      <div class="workshop-addon-grid">
+        <div class="workshop-addon-card"><strong>Two JBL 6 Speakers</strong><p>$25 flat fee</p></div>
+        <div class="workshop-addon-card"><strong>Folding Chairs</strong><p>$2/item</p></div>
+        <div class="workshop-addon-card"><strong>Six-foot Tables</strong><p>$20/item with linen</p></div>
+        <div class="workshop-addon-card"><strong>Delivery</strong><p>$25 flat fee</p></div>
+        <div class="workshop-addon-card"><strong>Pop-up Café</strong><p>$300/item</p></div>
+        <div class="workshop-addon-card"><strong>Roving Caviar</strong><p>Premium hospitality option</p></div>
+        <div class="workshop-addon-card"><strong>360 Booth</strong><p>$325/item</p></div>
+        <div class="workshop-addon-card"><strong>Workshop Layout</strong><p>Flexible seating options</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="workshop-section">
+    <div class="workshop-container">
+      <div class="workshop-section-header center">
+        <span class="workshop-kicker">How It Works</span>
+        <h2>Plan your workshop in a few simple steps.</h2>
+      </div>
+
+      <div class="workshop-steps-grid">
+        <div class="workshop-step-card">
+          <div class="workshop-step-number">1</div>
+          <h3>View Availability</h3>
+          <p>Open the Peerspace listing to review available dates, pricing, and venue details.</p>
+        </div>
+        <div class="workshop-step-card">
+          <div class="workshop-step-number">2</div>
+          <h3>Select Your Time</h3>
+          <p>Choose the workshop date and booking window that gives your team enough time to meet and reset.</p>
+        </div>
+        <div class="workshop-step-card">
+          <div class="workshop-step-number">3</div>
+          <h3>Add Support Items</h3>
+          <p>Add chairs, tables, speakers, café service, or premium hospitality options based on your needs.</p>
+        </div>
+        <div class="workshop-step-card">
+          <div class="workshop-step-number">4</div>
+          <h3>Host With Ease</h3>
+          <p>Bring your team, clients, or attendees into a polished space designed for a productive experience.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="workshop-section" id="workshop-booking">
+    <div class="workshop-container">
+      <div class="workshop-booking-wrap">
+        <div class="workshop-booking-panel">
+          <h2>Ready to book your workshop date?</h2>
+          <p>For the fastest booking experience, reserve directly through the Peerspace listing.</p>
+          <p><strong>Corporate workshop dates can fill quickly.</strong> Book early to secure your preferred day and time.</p>
+        </div>
+
+        <div class="workshop-booking-options">
+          <div class="workshop-booking-box">
+            <h3>Book directly on Peerspace</h3>
+            <p>View real-time booking details, pricing, available dates, venue information, and secure your workshop date online.</p>
+            <a class="workshop-btn workshop-btn-primary" href="https://www.peerspace.com/pages/listings/647045b37672b6000e70ac0d?utm_source=copy_link&utm_campaign=listing_sharing" target="_blank" rel="noopener">Book Workshop Space</a>
+          </div>
+
+          <div class="workshop-booking-box highlight">
+            <h3>Need help before booking?</h3>
+            <p>Call us to discuss your workshop type, guest count, layout needs, speaker setup, or hospitality add ons.</p>
+            <a class="workshop-btn workshop-btn-secondary" href="tel:4072058938">Call 407-205-8938</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="workshop-section">
+    <div class="workshop-container">
+      <div class="workshop-urgency">
+        <div>
+          <h2>Bring your next business gathering into a space that feels intentional.</h2>
+          <p>The Ivory Room is a flexible, elevated alternative to a traditional meeting room, perfect for trainings, planning days, client sessions, and private professional events.</p>
+        </div>
+        <div class="workshop-btn-row">
+          <a class="workshop-btn workshop-btn-primary" href="https://www.peerspace.com/pages/listings/647045b37672b6000e70ac0d?utm_source=copy_link&utm_campaign=listing_sharing" target="_blank" rel="noopener">Check Workshop Availability</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
